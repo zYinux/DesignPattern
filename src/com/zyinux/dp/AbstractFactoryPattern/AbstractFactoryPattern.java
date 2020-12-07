@@ -12,6 +12,7 @@ public class AbstractFactoryPattern {
     /**
      * 特意设计两个产品的两个方法不一样，突出抽象工厂模式不需要产品之间有很多的共同点
      * 但是这几个Product应该是可以按一定的规则（风格，比如春装和夏装中的衣裤。比如windows和mac系统上的button和checkbox）搭配配套使用的
+     * 抽象工厂专门用于生产一系列相关对象
      */
     interface ProductA{
         void fly();
@@ -33,6 +34,9 @@ public class AbstractFactoryPattern {
         ProductB createProductB();
     }
 
+    /**
+     * X 风格的 A产品
+     */
     static class StyleXProductA implements ProductA{
 
         @Override
@@ -48,6 +52,9 @@ public class AbstractFactoryPattern {
         }
     }
 
+    /**
+     * X 风格的 B产品
+     */
     static class StyleXProductB implements ProductB{
         @Override
         public void walk() {
@@ -62,6 +69,9 @@ public class AbstractFactoryPattern {
         }
     }
 
+    /**
+     * 创建X风格产品的工厂类
+     */
     static class StyleXFactory implements AbstractFactory{
 
         @Override
@@ -75,6 +85,9 @@ public class AbstractFactoryPattern {
         }
     }
 
+    /**
+     * 创建Y风格产品的工厂类
+     */
     static class StyleYFactory implements AbstractFactory{
 
         @Override
